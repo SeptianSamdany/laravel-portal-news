@@ -14,56 +14,38 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        // Get all categories and tags for filters
-        $categories = Category::where('is_active', true)->orderBy('name')->get();
-        $tags = Tag::orderBy('name')->get();
-        
         // Start query builder
         $articlesQuery = Article::with(['author', 'category', 'tags', 'comments'])
-            ->where('status', 'published')
-            ->where('published_at', '<=', now());
+            ->where('status', 'published');
+            // ->where('published_at', '<=', now());
         
-        // Apply category filter
-        if ($request->has('category')) {
-            $articlesQuery->whereHas('category', function($query) use ($request) {
-                $query->where('slug', $request->category)
-                      ->where('is_active', true);
-            });
-        }
-        
-        // Apply tag filter
-        if ($request->has('tag')) {
-            $articlesQuery->whereHas('tags', function($query) use ($request) {
-                $query->where('slug', $request->tag);
-            });
-        }
-        
-        // Apply sorting
-        switch ($request->get('sort', 'newest')) {
-            case 'oldest':
-                $articlesQuery->orderBy('published_at', 'asc');
-                break;
-            case 'popular':
-                $articlesQuery->orderBy('views_count', 'desc');
-                break;
-            case 'newest':
-            default:
-                $articlesQuery->orderBy('published_at', 'desc');
-                break;
-        }
-        
-        // Get featured article
-        $featuredArticle = Article::with(['author', 'category'])
+        // Get featured articles (changed to get multiple featured articles)
+        $featuredArticles = Article::with(['author', 'category'])
             ->where('status', 'published')
             ->where('published_at', '<=', now())
             ->where('is_featured', true)
             ->orderBy('published_at', 'desc')
-            ->first();
+            ->limit(5) // Limit to 5 featured articles, adjust as needed
+            ->get();
+
+        // Tambahkan ini:
+        $editorPicks = Article::with(['author', 'category'])
+            ->where('status', 'published')
+            ->latest('published_at')
+            ->take(5)
+            ->get();
+
+        $mainPick = $editorPicks->first();
+        $sidePicks = $editorPicks->skip(1);
         
         // Paginate results
         $articles = $articlesQuery->paginate(9)->withQueryString();
+        $categories = Category::all();
+        $tags = Tag::all();
         
-        return view('articles.index', compact('articles', 'categories', 'tags', 'featuredArticle'));
+        return view('articles.index', compact('articles', 'featuredArticles', 'categories', 'tags', 'editorPicks',
+        'mainPick',
+        'sidePicks'));
     }
 
     /**
@@ -93,9 +75,38 @@ class ArticleController extends Controller
                     });
             })
             ->orderBy('published_at', 'desc')
-            ->take(2)
+            ->take(3)
             ->get();
         
         return view('articles.show', compact('article', 'relatedArticles'));
+    }
+
+    public function trending(Request $request)
+    {
+        $trendingArticles = Article::with(['author', 'category', 'tags'])
+            ->where('status', 'published')
+            ->where('published_at', '<=', now())
+            ->orderBy('views_count', 'desc')
+            ->paginate(9)
+            ->withQueryString();
+
+        $categories = Category::all();
+        $tags = Tag::all();
+
+        return view('articles.trending', compact('trendingArticles', 'categories', 'tags'));
+    }
+
+    public function editorPicks()
+    {
+        $editorPicks = Article::with(['author', 'category'])
+            ->where('status', 'published')
+            ->latest('published_at')
+            ->take(5)
+            ->get();
+
+        $mainPick = $editorPicks->first();
+        $sidePicks = $editorPicks->skip(1);
+
+        return view('articles.editor-picks', compact('mainPick', 'sidePicks', 'editorPicks'));
     }
 }

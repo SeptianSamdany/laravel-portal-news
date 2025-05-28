@@ -15,15 +15,16 @@ class Article extends Model
         'slug',
         'excerpt',
         'content',
-        'featured_image',
+        'thumbnail',
         'author_id',
         'category_id',
         'published_at',
-        'status', // draft, published, scheduled
+        'status', 
         'meta_title',
         'meta_description',
         'views_count',
         'is_featured',
+        'is_breaking',
     ];
 
     protected $casts = [

@@ -3,6 +3,8 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Admin\Resources\UserResource as ResourcesUserResource;
+use App\Filament\Resources\AdvertisementResource;
+use App\Filament\Resources\AuthorApplicationResource;
 use App\Filament\Resources\UserResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -55,6 +57,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->resources([
                 ResourcesUserResource::class,
+                // AuthorApplicationResource::class,
+                // AdvertisementResource::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
             ->widgets([
@@ -80,6 +84,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 FilamentShieldPlugin::make(), 
-            ]);
+            ])
+            ->spa();
         }
 }   

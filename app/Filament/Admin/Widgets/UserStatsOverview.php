@@ -28,17 +28,17 @@ class UserStatsOverview extends BaseWidget
             Stat::make('Total Users', User::count())
                 ->description('Total registered users')
                 ->descriptionIcon('heroicon-m-users')
-                ->color('primary'),
+                ->color('danger'),
                 
             Stat::make('New Users This Month', User::whereMonth('created_at', now()->month)->count())
                 ->description(now()->format('F Y'))
                 ->descriptionIcon('heroicon-m-user-plus')
-                ->color('success'),
+                ->color('info'),
                 
             Stat::make('User Roles', User::distinct('role')->count('role'))
                 ->description('Different roles in system')
                 ->descriptionIcon('heroicon-m-user-group')
-                ->color('warning'),
+                ->color('primary'),
         ];
     }
 }

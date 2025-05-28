@@ -136,19 +136,5 @@
     </div>
 </section>
 
-<!-- Newsletter Section -->
-<section class="py-12 md:py-16 bg-indigo-700 text-white">
-    <div class="container mx-auto px-4">
-        <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-2xl md:text-3xl font-semibold mb-4">Stay Updated</h2>
-            <p class="text-indigo-100 mb-8">Subscribe to our newsletter to receive the latest articles and updates.</p>
-            
-            <form action="{{ route('newsletter.subscribe') }}" method="POST" class="flex flex-col md:flex-row gap-2">
-                @csrf
-                <input type="email" name="email" placeholder="Your email address" required class="flex-grow px-4 py-2 rounded-lg focus:outline-none text-gray-800">
-                <button type="submit" class="bg-white text-indigo-700 font-medium py-2 px-6 rounded-lg hover:bg-indigo-50 transition duration-300">Subscribe</button>
-            </form>
-        </div>
-    </div>
-</section>
+@include('components.subscription-cta')
 @endsection

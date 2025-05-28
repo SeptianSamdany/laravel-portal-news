@@ -15,13 +15,10 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        // Filament::serving(function () {
-        //     Filament::registerUserMenuItems([
-        //         UserMenuItem::make()
-        //             ->label('Pengaturan Profil')
-        //             ->url('/profile')
-        //             ->icon('heroicon-o-user-circle'),
-        //     ]);
-        // });
+        Filament::serving(function () {
+        if (auth()->check() && auth()->user()->hasRole('user')) {
+            abort(403, 'Unauthorized');
+        }
+    });
     }
 }

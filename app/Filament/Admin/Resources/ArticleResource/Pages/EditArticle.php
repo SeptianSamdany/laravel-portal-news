@@ -16,4 +16,11 @@ class EditArticle extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        $data['author_id'] = $this->record->author_id;
+        return $data;
+    }
+
 }
