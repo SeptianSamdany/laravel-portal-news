@@ -102,6 +102,10 @@ class ArticleResource extends Resource
                     Forms\Components\Toggle::make('is_breaking')
                         ->label('Breaking News Article')
                         ->helperText('Display this article in breaking news sections'),
+                    Forms\Components\Toggle::make('is_editor_pick')
+                        ->label('Editor Picks Article')
+                        ->helperText('Display this article in Editor Picks sections')
+                        ->inline(false),
                     Forms\Components\DateTimePicker::make('published_at')
                         ->label('Publish Date')
                         ->required(fn (Forms\Get $get) => $get('status') === 'scheduled')

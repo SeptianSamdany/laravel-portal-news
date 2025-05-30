@@ -1,4 +1,4 @@
-{{-- categories/index.blade.php --}}
+i{{-- categories/index.blade.php --}}
 {{-- This view displays a list of categories with their respective articles. --}}
 @extends('layouts.standard')
 

@@ -28,7 +28,7 @@ Route::get('/advertisement', function () {
 // Article routes
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles/trending', [ArticleController::class, 'trending'])->name('articles.trending');
-Route::get('/articles/editor-picks', [ArticleController::class, 'editor-picks'])->name('articles.editor-picks');
+Route::get('/articles/editor-picks', [\App\Http\Controllers\ArticleController::class, 'editorPicks'])->name('articles.editor-picks');
 Route::get('/articles/{slug}', [ArticleController::class, 'show'])->name('articles.show'); 
 
 // // Category routes

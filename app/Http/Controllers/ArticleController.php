@@ -98,14 +98,14 @@ class ArticleController extends Controller
 
     public function editorPicks()
     {
-        $editorPicks = Article::with(['author', 'category'])
+        $editorPicks = \App\Models\Article::with(['author', 'category'])
             ->where('status', 'published')
+            ->where('is_editor_pick', true) // pastikan kolom ini ada
             ->latest('published_at')
-            ->take(5)
-            ->get();
+            ->paginate(5);
 
         $mainPick = $editorPicks->first();
-        $sidePicks = $editorPicks->skip(1);
+        $sidePicks = $editorPicks->skip(1)->values();
 
         return view('articles.editor-picks', compact('mainPick', 'sidePicks', 'editorPicks'));
     }

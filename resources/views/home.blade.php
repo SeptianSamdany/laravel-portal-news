@@ -2,301 +2,216 @@
 
 @section('title', 'Beranda - ' . config('app.name'))
 
+@push('styles')
+<style>
+    .slide-up {
+        animation: slideUp 0.8s ease-out;
+    }
+    
+    .fade-in {
+        animation: fadeIn 1s ease-out;
+    }
+    
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+@endpush
+
 @section('content')
-<div class="min-h-screen bg-white">
-    <!-- Welcome Banner Section -->
-    <div class="bg-white border-b-2 border-red-500 py-8 mb-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                <span class="text-black">News</span><span class="text-red-500">Hub</span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Pusat Informasi Terpercaya untuk Berita Terkini
-            </p>
+<div class="min-h-screen">
+    <!-- Hero Section -->
+    <section class="bg-white py-16 md:py-24 border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <!-- Brand Logo -->
+            <div class="slide-up mb-8">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4">
+                    <span class="text-black">News</span><span class="text-red-500">Hub</span>
+                </h1>
+                
+                <!-- Clean Divider -->
+                <div class="w-16 h-0.5 bg-red-500 mx-auto mb-6"></div>
+                
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                    Portal berita terpercaya dengan informasi 
+                    <span class="text-red-500 font-medium">akurat</span> dan 
+                    <span class="text-black font-medium">terkini</span>
+                </p>
+            </div>
             
-            <div class="flex flex-wrap justify-center gap-8 text-sm">
-                <div class="flex items-center text-gray-700">
-                    <svg class="w-4 h-4 mr-3 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                    </svg>
-                    Berita Terverifikasi
-                </div>
-                <div class="flex items-center text-gray-700">
-                    <svg class="w-4 h-4 mr-3 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
-                    </svg>
-                    Update 24/7
-                </div>
-                <div class="flex items-center text-gray-700">
-                    <svg class="w-4 h-4 mr-3 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                    </svg>
-                    Multi Kategori
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Quick Stats Section -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="stat-card bg-white border border-gray-300 p-6 text-center">
-                <div class="text-3xl font-bold text-red-600 mb-2">1,250</div>
-                <div class="text-sm text-gray-600 border-t border-gray-100 pt-2">Total Artikel</div>
-            </div>
-            <div class="stat-card bg-white border border-gray-300 p-6 text-center">
-                <div class="text-3xl font-bold text-red-600 mb-2">89,500</div>
-                <div class="text-sm text-gray-600 border-t border-gray-100 pt-2">Total Pembaca</div>
-            </div>
-            <div class="stat-card bg-white border border-gray-300 p-6 text-center">
-                <div class="text-3xl font-bold text-red-600 mb-2">12</div>
-                <div class="text-sm text-gray-600 border-t border-gray-100 pt-2">Kategori Berita</div>
-            </div>
-            <div class="stat-card bg-white border border-gray-300 p-6 text-center">
-                <div class="text-3xl font-bold text-red-600 mb-2">2,150</div>
-                <div class="text-sm text-gray-600 border-t border-gray-100 pt-2">Pembaca Harian</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hero Section with Featured Articles Carousel - Auto Rotate Only -->
-    @if($featuredArticles->count() > 0)
-        <div class="mb-12" 
-            x-data="{
-                currentIndex: 0,
-                articles: {{ Illuminate\Support\Js::from($featuredArticles) }},
-                timer: null,
-                autoplaySpeed: 5000,
-                isHovering: false,
-                
-                init() {
-                    this.startTimer();
-                    this.preloadImages();
-                },
-                
-                preloadImages() {
-                    this.articles.forEach(article => {
-                        const img = new Image();
-                        img.src = '/storage/' + article.thumbnail;
-                    });
-                },
-                
-                startTimer() {
-                    if (!this.isHovering) {
-                        clearInterval(this.timer);
-                        this.timer = setInterval(() => {
-                            this.next();
-                        }, this.autoplaySpeed);
-                    }
-                },
-                
-                pauseTimer() {
-                    this.isHovering = true;
-                    clearInterval(this.timer);
-                },
-                
-                resumeTimer() {
-                    this.isHovering = false;
-                    this.startTimer();
-                },
-                
-                next() {
-                    this.currentIndex = (this.currentIndex + 1) % this.articles.length;
-                    this.resetTimer();
-                },
-                
-                goToSlide(index) {
-                    this.currentIndex = index;
-                    this.resetTimer();
-                },
-                
-                resetTimer() {
-                    clearInterval(this.timer);
-                    if (!this.isHovering) {
-                        this.startTimer();
-                    }
-                },
-                
-                truncateText(text, length = 80) {
-                    return text.length > length ? text.substring(0, length) + '...' : text;
-                }
-            }"
-            @mouseenter="pauseTimer()"
-            @mouseleave="resumeTimer()">
-            
-            <div class="relative rounded-xl overflow-hidden shadow-2xl">
-                <!-- Progress Bar -->
-                <div class="absolute top-0 left-0 right-0 z-20 h-1 bg-black/20">
-                    <div class="h-full bg-gradient-to-r from-red-500 to-red-600"
-                        x-ref="progressBar"
-                        x-effect="
-                            if (!isHovering) {
-                                $refs.progressBar.style.transition = `width ${autoplaySpeed}ms linear`;
-                                $refs.progressBar.style.width = '100%';
-                                setTimeout(() => {
-                                    $refs.progressBar.style.width = '0%';
-                                }, 50);
-                            } else {
-                                $refs.progressBar.style.transition = 'none';
-                            }
-                        "
-                        :style="{ width: '0%' }">
+            <!-- Key Features -->
+            <div class="fade-in grid md:grid-cols-3 gap-6 mb-12 max-w-3xl mx-auto">
+                <div class="flex flex-col items-center p-4">
+                    <div class="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center mb-3">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
                     </div>
-                </div>
-
-                <div class="relative h-[400px] md:h-[500px] lg:h-[550px] overflow-hidden">
-                    <template x-for="(article, index) in articles" :key="index">
-                        <div x-show="currentIndex === index"
-                            x-transition:enter="transition ease-out duration-700"
-                            x-transition:enter-start="opacity-0 transform scale-105"
-                            x-transition:enter-end="opacity-100 transform scale-100"
-                            x-transition:leave="transition ease-in duration-500"
-                            x-transition:leave-start="opacity-100"
-                            x-transition:leave-end="opacity-0"
-                            class="absolute inset-0 w-full h-full">
-                            
-                            <img :src="'/storage/' + article.thumbnail" :alt="article.title" 
-                                class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                            
-                            <div class="absolute bottom-0 left-0 right-0 p-6 md:p-10 lg:p-12">
-                                <div class="max-w-3xl">
-                                    <!-- Category Badge -->
-                                    <template x-if="article.category">
-                                        <div class="mb-4">
-                                            <a :href="`/articles?category=${article.category.slug}`" 
-                                            class="inline-flex items-center px-3 py-1.5 bg-red-600 text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-red-700 transition-all duration-200 hover:scale-105">
-                                                <span x-text="article.category.name"></span>
-                                            </a>    
-                                        </div>
-                                    </template>
-                                    
-                                    <!-- Title -->
-                                    <h1 class="text-2xl md:text-3xl lg:text-4xl text-white font-bold mb-3 lg:mb-4 
-                                            leading-tight tracking-tight drop-shadow-lg border-l-8 border-red-600 pl-6"
-                                        x-text="truncateText(article.title, 60)">
-                                    </h1>
-                                    
-                                    <!-- Excerpt -->
-                                    <div class="mb-6">
-                                        <p class="text-gray-100 text-sm md:text-base max-w-2xl 
-                                                leading-relaxed font-light line-clamp-2"
-                                        x-text="truncateText(article.excerpt, 120)">
-                                        </p>
-                                    </div>
-                                    
-                                    <!-- Meta Info -->
-                                    <div class="flex flex-wrap items-center gap-4 mb-6 text-xs text-gray-300">
-                                        <div class="flex items-center bg-black/30 rounded-full px-3 py-1 backdrop-blur-sm">
-                                            <svg class="h-3 w-3 mr-2 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-                                            </svg>
-                                            <span class="text-white font-medium" x-text="article.author.name"></span>
-                                        </div>
-                                        
-                                        <div class="flex items-center bg-black/30 rounded-full px-3 py-1 backdrop-blur-sm">
-                                            <svg class="h-3 w-3 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                            </svg>
-                                            <span x-text="new Date(article.published_at).toLocaleDateString('id-ID', {
-                                                day: 'numeric',
-                                                month: 'short'
-                                            })"></span>
-                                        </div>
-                                        
-                                        <div class="flex items-center bg-black/30 rounded-full px-3 py-1 backdrop-blur-sm">
-                                            <svg class="h-3 w-3 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                            </svg>
-                                            <span x-text="article.views_count.toLocaleString('id-ID')"></span>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- CTA Button -->
-                                    <div>
-                                        <a :href="`/articles/${article.slug}`" 
-                                        class="inline-flex items-center bg-gradient-to-r from-red-600 to-red-700 text-white font-bold text-sm px-6 py-3 rounded-full hover:from-red-700 hover:to-red-800 transition-all duration-300 group transform hover:scale-105 shadow-lg hover:shadow-xl">
-                                            <span>Baca Sekarang</span>
-                                            <svg class="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </template>
+                    <h3 class="font-semibold text-black text-sm mb-1">Terverifikasi</h3>
+                    <p class="text-xs text-gray-500 text-center">Berita telah diverifikasi</p>
                 </div>
                 
-                <!-- Dots Navigation -->
-                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-                    <template x-for="(article, index) in articles" :key="index">
-                        <button @click="goToSlide(index)" 
-                                class="w-3 h-3 rounded-full transition-all duration-300 focus:outline-none transform hover:scale-110"
-                                :class="currentIndex === index ? 'bg-red-600 shadow-lg' : 'bg-white/50 hover:bg-white/70'">
-                            <span class="sr-only" x-text="`Go to slide ${index + 1}`"></span>
-                        </button>
-                    </template>
+                <div class="flex flex-col items-center p-4">
+                    <div class="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center mb-3">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-black text-sm mb-1">Real-Time</h3>
+                    <p class="text-xs text-gray-500 text-center">Update setiap saat</p>
+                </div>
+                
+                <div class="flex flex-col items-center p-4">
+                    <div class="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center mb-3">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-black text-sm mb-1">Lengkap</h3>
+                    <p class="text-xs text-gray-500 text-center">Multi kategori berita</p>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="fade-in flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#content" class="bg-red-500 hover:bg-red-600 text-white font-medium px-8 py-3 rounded-lg transition-colors duration-200 flex items-center group">
+                    <span>Baca Berita</span>
+                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+                
+                <a href="{{ route('about') }}" class="text-gray-600 hover:text-red-500 font-medium px-6 py-3 border border-gray-200 hover:border-red-200 rounded-lg transition-colors duration-200">
+                    Tentang Kami
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="content" class="py-12 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- Section Title -->
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold text-black mb-2">Statistik Platform</h2>
+                <div class="w-12 h-0.5 bg-red-500 mx-auto"></div>
+            </div>
+            
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 text-center rounded-lg border border-gray-100">
+                    <div class="text-3xl font-bold text-red-500 mb-1">{{ number_format($stats['total_articles'] ?? 1250) }}</div>
+                    <div class="text-sm text-gray-600">Total Artikel</div>
+                </div>
+                
+                <div class="bg-white p-6 text-center rounded-lg border border-gray-100">
+                    <div class="text-3xl font-bold text-red-500 mb-1">{{ $stats['total_readers'] ?? '89.5K' }}</div>
+                    <div class="text-sm text-gray-600">Total Pembaca</div>
+                </div>
+                
+                <div class="bg-white p-6 text-center rounded-lg border border-gray-100">
+                    <div class="text-3xl font-bold text-red-500 mb-1">{{ $stats['categories_count'] ?? 12 }}</div>
+                    <div class="text-sm text-gray-600">Kategori</div>
+                </div>
+                
+                <div class="bg-white p-6 text-center rounded-lg border border-gray-100">
+                    <div class="text-3xl font-bold text-red-500 mb-1">{{ $stats['daily_readers'] ?? '2.1K' }}</div>
+                    <div class="text-sm text-gray-600">Harian</div>
                 </div>
             </div>
         </div>
-    @endif
+    </section>
+
+    <!-- News Section Divider -->
+    <div class="py-6 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center">
+                <div class="flex-1 border-t border-gray-200"></div>
+                <span class="px-4 text-sm font-semibold text-red-500 uppercase tracking-wide">
+                    Berita Terkini
+                </span>
+                <div class="flex-1 border-t border-gray-200"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Main Content Area -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
             <!-- Main Content Column -->
             <div class="lg:col-span-3">
-                
-                <!-- Breaking News Section -->
-                @if($breakingNews->count() > 0)
+               @if($breakingNews->count() > 0)
                     <div class="mb-12">
-                        <div class="flex items-center mb-6" x-data="{ offset: 0 }" x-init="setInterval(() => {offset -= 1;
-                                        if (offset <= -$refs.marquee.scrollWidth) {
-                                            offset = $refs.container.offsetWidth;}}, 20)">
-                            <div class="bg-red-600 text-white px-4 py-2 rounded-l-md font-bold text-sm uppercase tracking-wide">
+                        <!-- Breaking News Marquee -->
+                        <div 
+                            class="flex items-center bg-white border-l-4 border-red-600 rounded-md px-4 py-3 mb-6 shadow-sm overflow-hidden"
+                            x-data="{ offset: 0 }"
+                            x-init="setInterval(() => {
+                                offset -= 1;
+                                if (offset <= -$refs.marquee.scrollWidth) {
+                                    offset = $refs.container.offsetWidth;
+                                }
+                            }, 25)"
+                        >
+                            <!-- Title -->
+                            <span class="text-xs md:text-sm font-semibold uppercase text-red-600 mr-4 tracking-widest whitespace-nowrap">
                                 Breaking News
-                            </div>
-                            <div class="bg-red-100 flex-1 h-10 rounded-r-md flex items-center overflow-hidden relative" x-ref="container">
-                                <div
-                                    class="absolute whitespace-nowrap text-red-800 text-sm font-medium"
+                            </span>
+
+                            <!-- Marquee container -->
+                            <div class="relative flex-1 h-6 overflow-hidden" x-ref="container">
+                                <div class="absolute whitespace-nowrap text-sm md:text-base text-black font-medium" 
                                     :style="'transform: translateX(' + offset + 'px)'"
-                                    x-ref="marquee"
-                                >
-                                    {{ $breakingNews->first()->title }}
+                                    x-ref="marquee">
+                                    {{ $breakingNews->random()->title }}
                                 </div>
                             </div>
-                        </div>     
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        </div>
+
+                        <!-- Articles -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                             @foreach($breakingNews->take(3) as $news)
-                                <article class="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200">
-                                    <div class="aspect-w-16 aspect-h-9">
-                                        <img src="/storage/{{ $news->thumbnail }}" 
-                                             alt="{{ $news->title }}" 
-                                             class="w-full h-48 object-cover">
-                                    </div>
-                                    
+                                <article class="bg-white border border-gray-200 rounded-md overflow-hidden hover:shadow-md transition duration-200">
+                                    <!-- Thumbnail -->
+                                    <img src="/storage/{{ $news->thumbnail }}" alt="{{ $news->title }}" class="w-full h-48 object-cover">
+
+                                    <!-- Content -->
                                     <div class="p-4">
                                         @if($news->category)
-                                            <div class="mb-2">
-                                                <span class="inline-block bg-red-100 text-red-800 text-xs font-medium px-2 py-1 rounded">
-                                                    {{ $news->category->name }}
-                                                </span>
-                                            </div>
+                                            <a href="{{ route('categories.show', $news->category->slug) }}"
+                                            <span class="inline-block text-red-600 text-xs hover:text-red-400 transition duration-300 mb-2">
+                                                {{ $news->category->name }}
+                                            </span>
+                                            </a>
                                         @endif
-                                        
-                                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2 hover:text-red-600 transition-colors duration-200">
+
+                                        <h3 class="text-sm font-semibold text-gray-900 mb-1 line-clamp-2 hover:text-red-600 transition">
                                             <a href="/articles/{{ $news->slug }}">{{ $news->title }}</a>
                                         </h3>
-                                        
-                                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+
+                                        <p class="text-xs text-gray-600 line-clamp-2 mb-2">
                                             {{ $news->excerpt }}
                                         </p>
-                                        
-                                        <div class="flex items-center text-xs text-gray-500">
+
+                                        <div class="text-xs text-gray-500 flex items-center">
                                             <span>{{ $news->author->name }}</span>
-                                            <span class="mx-2">•</span>
+                                            <span class="mx-1">•</span>
                                             <time>{{ $news->published_at->diffForHumans() }}</time>
                                         </div>
                                     </div>
@@ -308,68 +223,6 @@
 
                 <!-- Advertisement Banner -->
                 @include('components.advertisement')
-
-                {{-- Editor's Pick Section --}}
-                {{-- @if(isset($editorsPick) && $editorsPick->count() > 0)
-                    <div class="mb-12">
-                        <div class="flex items-center mb-6">
-                            <div class="bg-yellow-500 text-white px-4 py-2 rounded-l-md font-bold text-sm uppercase tracking-wide">
-                                <svg class="w-4 h-4 inline mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                                Pilihan Editor
-                            </div>
-                            <div class="bg-yellow-100 flex-1 h-10 rounded-r-md flex items-center px-4">
-                                <div class="text-yellow-800 text-sm font-medium">
-                                    Artikel terpilih dari tim redaksi NewsHub
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            @foreach($editorsPick->take(2) as $article)
-                                <article class="bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300">
-                                    <div class="aspect-w-16 aspect-h-9">
-                                        <img src="/storage/{{ $article->thumbnail }}" 
-                                            alt="{{ $article->title }}" 
-                                            class="w-full h-56 object-cover">
-                                    </div>
-                                    
-                                    <div class="p-6">
-                                        @if($article->category)
-                                            <div class="mb-3">
-                                                <span class="inline-block bg-yellow-200 text-yellow-800 text-xs font-medium px-2 py-1 rounded">
-                                                    {{ $article->category->name }}
-                                                </span>
-                                            </div>
-                                        @endif
-                                        
-                                        <h3 class="font-bold text-gray-900 mb-3 text-lg line-clamp-2 hover:text-yellow-600 transition-colors duration-200">
-                                            <a href="/articles/{{ $article->slug }}">{{ $article->title }}</a>
-                                        </h3>
-                                        
-                                        <p class="text-gray-700 text-sm mb-4 line-clamp-3">
-                                            {{ $article->excerpt }}
-                                        </p>
-                                        
-                                        <div class="flex items-center justify-between">
-                                            <div class="flex items-center text-xs text-gray-600">
-                                                <span>{{ $article->author->name }}</span>
-                                                <span class="mx-2">•</span>
-                                                <time>{{ $article->published_at->diffForHumans() }}</time>
-                                            </div>
-                                            <div class="text-yellow-600">
-                                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
-                            @endforeach
-                        </div>
-                    </div>
-                @endif --}}
 
                 <!-- Latest Articles Section -->
                 <div class="mb-12">
@@ -394,7 +247,7 @@
                                 <div class="flex-1 min-w-0">
                                     @if($article->category)
                                         <div class="mb-2">
-                                            <span class="inline-block bg-gray-100 text-gray-800 text-xs font-medium px-2 py-1 rounded">
+                                            <span class="inline-block text-red-600 hover:text-red-400 transition-colors duration-200 text-xs font-medium">
                                                 {{ $article->category->name }}
                                             </span>
                                         </div>
@@ -417,6 +270,9 @@
                     </div>
                 </div>
 
+                <!-- Advertisement Banner -->
+                @include('components.advertisement')
+
                 <!-- Category Sections -->
                 @foreach($categoriesWithArticles as $category)
                     <div class="mb-12">
@@ -424,7 +280,7 @@
                             <h2 class="text-2xl text-gray-900 font-bold border-l-4 border-red-600 pl-4">
                                 {{ $category->name }}
                             </h2>
-                            <a href="/articles?category={{ $category->slug }}" 
+                            <a href="{{ route('categories.show', $category->slug) }}" 
                                class="text-red-600 hover:text-red-800 font-medium text-sm transition-colors duration-200">
                                 Lihat Semua →
                             </a>
@@ -459,31 +315,35 @@
                         </div>
                     </div>
                 @endforeach
+
+                <!-- Advertisement Banner -->
+                @include('components.advertisement')
             </div>
 
             <!-- Sidebar -->
             <div class="lg:col-span-1">
                 <!-- Trending Articles -->
-                <div class="bg-white rounded-lg p-5 mb-6 border border-gray-200">
-                    <h3 class="text-base font-semibold text-black mb-4">
+                <div class="bg-white rounded-lg p-5 mb-6 border border-gray-200 shadow-sm">
+                    <h3 class="text-lg font-bold text-black border-b-2 border-red-600 pb-2 mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 17l6-6 4 4 8-8" />
+                        </svg>
                         Trending
                     </h3>
-                    
-                    <div class="space-y-4">
+
+                    <div class="space-y-5">
                         @foreach($trendingArticles->take(5) as $index => $article)
-                            <div class="flex items-start gap-3 group">
-                                <div class="flex-shrink-0 w-6 h-6 bg-red-500 text-white rounded flex items-center justify-center text-xs font-medium">
-                                    {{ $index + 1 }}
-                                </div>
-                                
-                                <div class="flex-1 min-w-0">
-                                    <h4 class="text-sm font-medium text-black line-clamp-2 group-hover:text-red-500 transition-colors duration-150">
-                                        <a href="/articles/{{ $article->slug }}">{{ $article->title }}</a>
-                                    </h4>
-                                    
-                                    <div class="flex items-center text-xs text-gray-600 mt-2">
+                            <div class="flex items-start group border-l-4 pl-3 border-transparent hover:border-red-600 transition-all duration-200">
+                                <!-- Article Info -->
+                                <div class="ml-3">
+                                    <a href="/articles/{{ $article->slug }}" class="block text-sm font-semibold text-gray-900 group-hover:text-red-600 leading-snug line-clamp-2 transition-colors">
+                                        {{ $article->title }}
+                                    </a>
+                                    <div class="text-xs text-gray-500 mt-1 flex items-center gap-2">
                                         <span>{{ $article->views_count }} views</span>
-                                        <span class="mx-2">•</span>
+                                        <span>•</span>
                                         <time>{{ $article->published_at->diffForHumans() }}</time>
                                     </div>
                                 </div>

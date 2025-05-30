@@ -1,5 +1,3 @@
-
-
 @extends('layouts.standard')
 
 @section('title', $category->name . ' Articles')
@@ -11,42 +9,77 @@
     <div class="bg-gray-50 border-b border-gray-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
             <!-- Breadcrumb -->
-            <nav class="mb-6">
-                <div class="flex items-center space-x-2 text-sm text-gray-500">
-                    <a href="{{ route('home') }}" class="hover:text-red-600 transition-colors">Home</a>
-                    <span>/</span>
-                    <a href="{{ route('categories.index') }}" class="hover:text-red-600 transition-colors">Categories</a>
-                    <span>/</span>
-                    <span class="text-red-700">{{ $category->name }}</span>
-                </div>
+            <nav class="mb-6 bg-white py-2 px-4 rounded-md shadow-sm" aria-label="Breadcrumb">
+                <ol class="flex items-center text-sm font-medium text-gray-700 space-x-2">
+                    <!-- Home -->
+                    <li>
+                        <a href="{{ route('home') }}" class="text-black hover:text-red-600 transition-colors">Home</a>
+                    </li>
+
+                    <!-- Arrow -->
+                    <li>
+                        <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </li>
+
+                    <!-- Categories -->
+                    <li>
+                        <a href="{{ route('categories.index') }}" class="text-black hover:text-red-600 transition-colors">Categories</a>
+                    </li>
+
+                    <!-- Arrow -->
+                    <li>
+                        <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </li>
+
+                    <!-- Current Category -->
+                    <li class="text-red-700 truncate">
+                        {{ $category->name }}
+                    </li>
+                </ol>
             </nav>
-            
-            <!-- Category Info -->
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+
+           <!-- Category Info -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between bg-white p-6 rounded-lg shadow-sm mb-6">
+                <!-- Title & Description -->
                 <div class="mb-4 md:mb-0">
-                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-black mb-2 inline-block border-l-4 border-red-600 pl-4">
                         {{ $category->name }}
                     </h1>
                     @if($category->description)
-                    <p class="text-lg text-gray-600 leading-relaxed max-w-2xl">
-                        {{ $category->description }}
-                    </p>
+                        <p class="text-base text-gray-600 leading-relaxed max-w-2xl mt-2">
+                            {{ $category->description }}
+                        </p>
                     @endif
                 </div>
-                
-                <div class="flex items-center space-x-6 text-sm text-gray-500">
+
+                <!-- Metadata -->
+                <div class="flex items-center space-x-6 text-sm text-gray-600">
+                    <!-- Articles Count -->
                     <div class="flex items-center space-x-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                         </svg>
-                        <span>{{ $articles->total() }} Articles</span>
+                        <span class="text-black font-medium">{{ $articles->total() }} Articles</span>
                     </div>
+
+                    <!-- Total Views -->
                     <div class="flex items-center space-x-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                        <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                         </svg>
-                        <span>{{ number_format($articles->sum('views_count')) }} Total Views</span>
+                        <span class="text-black font-medium">{{ number_format($articles->sum('views_count')) }} Total Views</span>
                     </div>
                 </div>
             </div>
@@ -60,7 +93,7 @@
         <!-- Sorting & Filter Options -->
         <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8 pb-4 border-b border-gray-200">
             <div class="mb-4 md:mb-0">
-                <h2 class="text-xl font-semibold text-gray-900">All Articles</h2>
+                <h2 class="text-xl font-semibold text-gray-900 border-l-4 border-red-600 pl-4">All Articles</h2>
             </div>
             
             <div class="flex items-center space-x-4">
@@ -188,6 +221,8 @@
         </div>
         @endif
     </div>
+
+    @include('components.advertisement')
     
     <!-- Related Categories -->
     @php

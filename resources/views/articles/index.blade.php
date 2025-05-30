@@ -441,27 +441,20 @@
                                 <!-- Image Container -->
                                 <div class="relative overflow-hidden">
                                     <img src="{{ Storage::url($mainPick->thumbnail) }}" alt="{{ $mainPick->title }}" 
-                                        class="w-full h-[320px] object-cover">
-                                    
-                                    <!-- Editor's Pick Badge -->
-                                    <div class="absolute top-4 right-4">
-                                        <div class="bg-red-600 text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider shadow-lg">
-                                            Editor's Pick
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Category Badge -->
-                                    @if($mainPick->category)
-                                    <div class="absolute bottom-4 left-4">
-                                        <span class="bg-black text-white px-3 py-1 rounded-full text-xs font-medium uppercase">
-                                            {{ $mainPick->category->name }}
-                                        </span>
-                                    </div>
-                                    @endif
+                                        class="w-full h-[320px] object-cover">   
                                 </div>
                                 
                                 <!-- Content Section -->
                                 <div class="p-6 bg-white">
+                                    {{-- Category --}}
+                                    @if($mainPick->category)
+                                        <div class="mb-2">
+                                            <span class="text-red-600 text-sm font-medium uppercase tracking-wide">
+                                                {{ $mainPick->category->name }}
+                                            </span>
+                                        </div>
+                                        @endif
+
                                     <h3 class="text-xl lg:text-2xl font-bold text-black mb-3 line-clamp-2 group-hover:text-red-600 transition-colors duration-300">
                                         {{ Str::limit($mainPick->title, 60) }}
                                     </h3>
