@@ -2,6 +2,11 @@
 
 **NewsHub** adalah aplikasi portal berita berbasis Laravel 12, dilengkapi dengan fitur manajemen artikel, kategori, trending, editor's pick, komentar, dan dashboard admin menggunakan Filament 3.
 
+![Tampilan Homepage](public/screenshots/Screenshot(998).png)
+![Tampilan Artikel Berita](public/screenshots/Screenshot(999).png)
+![Tampilan Artikel Berita 2](public/screenshots/Screenshot(1000).png)
+![Tampilan Homepage](public/screenshots/Screenshot(1001).png)
+
 ---
 
 ## Fitur Utama
@@ -85,7 +90,7 @@
 ## Login Admin Filament
 
 - Akses dashboard admin di: `/admin`
-- Default user (jika ada seeder):  
+- Default user:  
   - **Email:** admin@example.com  
   - **Password:** password
 
